@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+    tools{
+        maven'MAVEN_HOME'
+    }
+
+    stages {
+        stage('Hello') {
+            steps {
+            echo 'hi Melek'
+            }
+            
+        }
+          stage('GIT') {
+            steps {
+              
+                   git branch: 'master', 
+                    url: 'https://github.com/TheMaliik/DEVOPS.git',
+                   
+            }
+            
+        }
+           stage('compilation maven') {
+            steps {
+              
+                   sh "mvn -version"
+            }
+            
+        }
+    }
+}
