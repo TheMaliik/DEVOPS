@@ -1,31 +1,27 @@
 pipeline {
     agent any
-    tools{
-        maven'MAVEN_HOME'
+    tools {
+        maven 'MAVEN_HOME'
     }
 
     stages {
         stage('Hello') {
             steps {
-            echo 'hi Melek'
+                echo 'hi Melek'
             }
-            
         }
-          stage('GIT') {
+        
+        stage('GIT') {
             steps {
-              
-                   git branch: 'master', 
-                    url: 'https://github.com/TheMaliik/DEVOPS.git',
-                   
+                git branch: 'master', 
+                    url: 'https://github.com/TheMaliik/DEVOPS.git'
             }
-            
         }
-           stage('compilation maven') {
+        
+        stage('compilation maven') {
             steps {
-              
-                   sh "mvn -version"
+                sh "mvn -version"
             }
-            
         }
     }
 }
